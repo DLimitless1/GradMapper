@@ -1,0 +1,125 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  role          Role      @default(STUDENT)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  profiles      UserProfile[]
+  collegeLists  UserCollegeList[]
+}
+
+model UserProfile {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  highSchool    String?
+  targetGPA     Float?
+  preferredCurrency String @default("USD")
+}
+
+model College {
+  id            String   @id @default(cuid())
+  name          String
+  website       String   @unique
+  country       String
+  state         String?
+  scrapedAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  programs      Program[]
+  costs         CollegeCost[]
+}
+
+model Program {
+  id            String   @id @default(cuid())
+  collegeId     String
+  college       College  @relation(fields: [collegeId], references: [id])
+  name          String   // e.g., "Computer Science, B.S."
+  degreeLevel   String   // Bachelor, Master, PhD, JD
+  durationYears Int?
+  requirements  Json?    // Admission & prerequisite data
+  scrapedAt     DateTime @default(now())
+
+  userLists     UserCollegeList[]
+}
+
+model UserCollegeList {
+  id            String   @id @default(cuid())
+  userId        String
+  programId     String
+  user          User     @relation(fields: [userId], references: [id])
+  program       Program  @relation(fields: [programId], references: [id])
+
+  status        String   @default("planning") // planning, applied, accepted
+  notes         String?
+
+  grades        Grade[]
+  admissions    UserAdmissionTracker[]
+  costs         UserCostTracker?
+}
+
+model Grade {
+  id            String   @id @default(cuid())
+  userCollegeListId String
+  userCollegeList   UserCollegeList @relation(fields: [userCollegeListId], references: [id])
+  courseName    String
+  credits       Float?
+  grade         String?  // A, B+, 3.7, etc.
+  status        GradeStatus @default(NOT_STARTED)
+  completedAt   DateTime?
+}
+
+model UserAdmissionTracker {
+  id                  String   @id @default(cuid())
+  userCollegeListId   String
+  userCollegeList     UserCollegeList @relation(fields: [userCollegeListId], references: [id])
+  requirementName     String
+  isRequired          Boolean  @default(true)
+  isCompleted         Boolean  @default(false)
+  completedAt         DateTime?
+}
+
+model CollegeCost {
+  id            String   @id @default(cuid())
+  collegeId     String
+  college       College  @relation(fields: [collegeId], references: [id])
+  category      String   // tuition, dorm, food, fees, etc.
+  amount        Decimal
+  frequency     String   // one_time, annual, monthly
+  currency      String
+  year          Int
+}
+
+model UserCostTracker {
+  id                String   @id @default(cuid())
+  userCollegeListId String   @unique
+  userCollegeList   UserCollegeList @relation(fields: [userCollegeListId], references: [id])
+  totalLumpSum      Decimal?
+  annualCost        Decimal?
+  monthlyCost       Decimal?
+}
+
+enum Role {
+  STUDENT
+  PARENT
+  COUNSELOR
+  ADMIN
+}
+
+enum GradeStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+}
