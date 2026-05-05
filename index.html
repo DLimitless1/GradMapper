@@ -109,19 +109,42 @@
       <h2 class="text-3xl font-bold mb-4">Join the Waitlist</h2>
       <p class="text-emerald-100 mb-8">Be the first to get early access + premium features when GradMapper launches.</p>
       
-      <form action="https://formsubmit.co/contact@grad-mapper.com" method="POST" class="flex flex-col sm:flex-row gap-4">
-        <input type="email" name="email" placeholder="your@email.com" required
-               class="flex-1 px-6 py-4 rounded-2xl text-slate-900 focus:outline-none focus:ring-4 focus:ring-emerald-400">
-        <button type="submit"
-                class="bg-[#10B981] hover:bg-emerald-600 font-semibold px-10 py-4 rounded-2xl transition">
-          Join Waitlist
-        </button>
-      </form>
-      <p class="text-xs text-emerald-100/70 mt-4">We respect your inbox. Early access + launch updates only.</p>
+      <form id="waitlistForm" class="flex flex-col sm:flex-row gap-4">
+  <input type="email" id="email" name="email" placeholder="your@email.com" required
+         class="flex-1 px-6 py-4 rounded-2xl text-slate-900 focus:outline-none focus:ring-4 focus:ring-emerald-400">
+  <button type="submit"
+          class="bg-[#10B981] hover:bg-emerald-600 font-semibold px-10 py-4 rounded-2xl transition">
+    Join Waitlist
+  </button>
+</form>
+ <p class="text-xs text-emerald-100/70 mt-4">We respect your inbox. Early access + launch updates only.</p>
     </div>
   </section>
 
-  <script>
+<script>
+  document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, userType: 'Student' })
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        alert('✅ Welcome to GradMapper! Check your email for updates.');
+        document.getElementById('waitlistForm').reset();
+      } else {
+        alert('⚠️ ' + data.message);
+      }
+    } catch (error) {
+      alert('❌ Error: ' + error.message);
+    }
+  });
+
     function toggleDarkMode() {
       document.documentElement.classList.toggle('dark');
     }
