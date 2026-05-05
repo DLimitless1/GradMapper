@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const PORT = 3006;
 
 // Serve static files (CSS, images, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -11,7 +12,7 @@ app.get('/', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3006;
 app.listen(PORT, () => {
   console.log(`GradMapper server running on port ${PORT}`);
 });
