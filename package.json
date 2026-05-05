@@ -1,28 +1,15 @@
 {
   "name": "grad-mapper",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "GradMapper — Navigate College Success: Track Programs, Admissions, Costs, and Career ROI.",
-  "private": true,
+  "main": "server.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node server.js"
   },
   "dependencies": {
-    "next": "15.2.4",
-    "react": "^19.0.0-rc-02c0e824-20241028",
-    "react-dom": "^19.0.0-rc-02c0e824-20241028"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "autoprefixer": "^10",
-    "eslint": "^8",
-    "eslint-config-next": "15.2.4",
-    "postcss": "^8",
-    "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.5.0"
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
   }
 }
