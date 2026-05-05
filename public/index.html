@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GradMapper | Navigate College Success</title>
+  <link rel="stylesheet" href="/app/globals.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic styling while CSS loads */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .navbar { background: white; padding: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .navbar-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 28px; font-weight: bold; color: #1E3A8A; font-family: 'Montserrat', sans-serif; }
+    .hero { background: linear-gradient(135deg, #1E3A8A 0%, #10B981 100%); color: white; padding: 120px 20px; text-align: center; }
+    .hero h1 { font-size: 56px; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; }
+    .hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.9; }
+    .btn { display: inline-block; background: #10B981; color: white; padding: 15px 40px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; font-size: 16px; }
+    .btn:hover { background: #059669; transform: scale(1.05); }
+    .section { padding: 60px 20px; }
+    .section h2 { font-size: 40px; margin-bottom: 30px; text-align: center; color: #1E3A8A; font-family: 'Montserrat', sans-serif; }
+    .survey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px 0; }
+    .survey-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; transition: all 0.3s; }
+    .survey-card:hover { transform: translateY(-5px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .survey-card h3 { color: #1E3A8A; margin: 15px 0; font-size: 24px; }
+    .survey-card a { display: inline-block; margin-top: 15px; color: #10B981; text-decoration: none; font-weight: 600; }
+    .waitlist-section { background: #1E3A8A; color: white; padding: 60px 20px; text-align: center; }
+    .waitlist-section h2 { color: white; margin-bottom: 20px; }
+    .form-wrapper { max-width: 500px; margin: 30px auto; }
+    .form-wrapper form { display: flex; gap: 10px; flex-wrap: wrap; }
+    .form-wrapper input { flex: 1; min-width: 200px; padding: 15px; border-radius: 12px; border: none; font-size: 16px; }
+    .form-wrapper button { padding: 15px 30px; background: #10B981; color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+    .form-wrapper button:hover { background: #059669; }
+    .message { padding: 15px; margin-top: 15px; border-radius: 8px; display: none; }
+    .message.success { background: #d1fae5; color: #065f46; }
+    .message.error { background: #fee2e2; color: #991b1b; }
+    .message.show { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <div class="logo">GradMapper</div>
+      <button onclick="toggleDarkMode()" style="background: none; border: none; font-size: 24px; cursor: pointer;">🌗</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div style="background: rgba(255,255,255,0.1); display: inline-block; padding: 10px 20px; border-radius: 20px; margin-bottom: 20px;">
+        <span style="color: #d1fae5;">✓ Coming Soon — Summer 2026</span>
+      </div>
+      
+      <h1>Navigate College Success</h1>
+      <p style="font-size: 24px; margin-bottom: 30px;">Track Programs • Admissions • Costs • Career ROI</p>
+      
+      <p style="font-size: 18px; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        The modern planning platform that brings college clarity. Side-by-side program comparison, live grade & admissions trackers, and true cost calculators — all in one beautiful dashboard.
+      </p>
+
+      <a href="#surveys" class="btn">Help Shape GradMapper → Take Our Surveys</a>
+    </div>
+  </section>
+
+  <!-- Surveys Section -->
+  <section id="surveys" class="section">
+    <div class="container">
+      <h2>Help Shape the Future of College Planning</h2>
+      <p style="text-align: center; font-size: 18px; color: #64748b; margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        We're building GradMapper with real input from students, parents, counselors, and school leaders. Your feedback will make college planning dramatically better.
+      </p>
+
+      <div class="survey-grid">
+        <!-- Student Survey -->
+        <div class="survey-card">
+          <div style="color: #10B981; font-size: 14px; font-weight: 600; margin-bottom: 10px;">FOR STUDENTS</div>
+          <h3>Students Survey</h3>
+          <p style="color: #64748b; margin: 15px 0;">High school & prospective college students planning a Bachelor's degree or higher.</p>
+          <a href="https://forms.gle/XtKFZMR8Bs1umz1x5?utm_source=gradmapper&utm_medium=prelaunch&utm_campaign=splash_page&utm_content=student_survey" target="_blank">Take Survey →</a>
+        </div>
+
+        <!-- Parent Survey -->
+        <div class="survey-card">
+          <div style="color: #10B981; font-size: 14px; font-weight: 600; margin-bottom: 10px;">FOR PARENTS</div>
+          <h3>Parent Survey</h3>
+          <p style="color: #64748b; margin: 15px 0;">Parents supporting college-bound students.</p>
+          <a href="https://forms.gle/BVFZdZbK4r8euQBf8?utm_source=gradmapper&utm_medium=prelaunch&utm_campaign=splash_page&utm_content=parent_survey" target="_blank">Take Survey →</a>
+        </div>
+
+        <!-- School Leaders -->
+        <div class="survey-card">
+          <div style="color: #10B981; font-size: 14px; font-weight: 600; margin-bottom: 10px;">FOR SCHOOL LEADERS</div>
+          <h3>High School Leaders Survey</h3>
+          <p style="color: #64748b; margin: 15px 0;">Principals and school leaders focused on college readiness.</p>
+          <a href="https://forms.gle/tcqwBPhx8356sRaAA?utm_source=gradmapper&utm_medium=prelaunch&utm_campaign=splash_page&utm_content=leaders_survey" target="_blank">Take Survey →</a>
+        </div>
+
+        <!-- Counselors -->
+        <div class="survey-card">
+          <div style="color: #10B981; font-size: 14px; font-weight: 600; margin-bottom: 10px;">FOR COUNSELORS</div>
+          <h3>Counselors Survey</h3>
+          <p style="color: #64748b; margin: 15px 0;">High school and college counselors.</p>
+          <a href="https://forms.gle/XJLie4AooU2Fktnk7?utm_source=gradmapper&utm_medium=prelaunch&utm_campaign=splash_page&utm_content=counselor_survey" target="_blank">Take Survey →</a>
+        </div>
+
+        <!-- Universities -->
+        <div class="survey-card">
+          <div style="color: #10B981; font-size: 14px; font-weight: 600; margin-bottom: 10px;">FOR UNIVERSITIES</div>
+          <h3>Universities & Partners Survey</h3>
+          <p style="color: #64748b; margin: 15px 0;">Universities and higher education partners.</p>
+          <a href="https://forms.gle/tWPhhZ5JgsqTxG6YA?utm_source=gradmapper&utm_medium=prelaunch&utm_campaign=splash_page&utm_content=university_survey" target="_blank">Take Survey →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist Section -->
+  <section class="waitlist-section">
+    <div class="container">
+      <h2>Join the Waitlist</h2>
+      <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">Be the first to get early access + premium features when GradMapper launches.</p>
+      
+      <div class="form-wrapper">
+        <form id="waitlistForm">
+          <input type="email" id="email" placeholder="your@email.com" required>
+          <button type="submit">Join Waitlist</button>
+        </form>
+        <div id="message" class="message"></div>
+      </div>
+
+      <p style="font-size: 14px; opacity: 0.7; margin-top: 20px;">We respect your inbox. Early access + launch updates only.</p>
+    </div>
+  </section>
+
+  <script>
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // Waitlist form submission
+    document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const messageEl = document.getElementById('message');
+
+      try {
+        const response = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, userType: 'Student' })
+        });
+
+        const data = await response.json();
+
+        messageEl.classList.add('show');
+        if (data.success) {
+          messageEl.classList.add('success');
+          messageEl.classList.remove('error');
+          messageEl.textContent = '✅ ' + data.message;
+          document.getElementById('waitlistForm').reset();
+        } else {
+          messageEl.classList.add('error');
+          messageEl.classList.remove('success');
+          messageEl.textContent = '⚠️ ' + data.message;
+        }
+      } catch (error) {
+        messageEl.classList.add('show', 'error');
+        messageEl.classList.remove('success');
+        messageEl.textContent = '❌ Error: ' + error.message;
+      }
+    });
+  </script>
+</body>
+</html>
