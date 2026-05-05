@@ -4,16 +4,8 @@
   "description": "GradMapper — Navigate College Success: Track Programs, Admissions, Costs, and Career ROI.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node server.js"
   },
-  "keywords": [
-    "college",
-    "admissions",
-    "ROI",
-    "education",
-    "planning"
-  ],
   "author": "DLimitless1",
   "license": "MIT",
   "dependencies": {
@@ -21,9 +13,5 @@
     "mysql2": "^3.6.5",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1"
-  },
-  "devDependencies": {},
-  "engines": {
-    "node": ">=14.0.0"
   }
 }
