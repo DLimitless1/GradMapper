@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GradMapper | Navigate College Success</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/app/globals.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  <form action="https://grad-mapper.com/waitlist.php" method="POST" ...></form>
+  
   <style>
     body { font-family: 'Inter', sans-serif; }
     .logo-font { font-family: 'Montserrat', sans-serif; }
@@ -19,7 +20,7 @@
   <nav class="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md fixed w-full z-50">
     <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <img src="https://gradmapper-live.vercel.app/assets/images/gradmapper_logo.png" alt="GradMapper Logo" class="h-10 w-auto">
+        <img src="/app/assets/images/gradmapper_logo.png" alt="GradMapper Logo" class="h-10 w-auto">
         <span class="logo-font text-3xl font-bold tracking-tight text-[#1E3A8A] dark:text-white">GradMapper</span>
       </div>
       <button onclick="toggleDarkMode()" class="text-2xl px-4 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition">🌗</button>
@@ -60,36 +61,28 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <!-- Student Survey -->
-        <a href="https://forms.gle/XtKFZMR8Bs1umz1x5?utm_source=vercel&utm_medium=website&utm_campaign=splash&utm_content=student" target="_blank" 
-           class="group bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 p-8 rounded-3xl transition-all hover:shadow-xl">
+        <a href="https://forms.gle/XtKFZMR8Bs1umz1x5?utm_source=vercel&utm_medium=website&utm_campaign=splash&utm_content=student" target="_blank" class="group bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 p-8 rounded-3xl transition-all hover:shadow-xl">
           <div class="text-[#10B981] text-sm font-semibold mb-2">FOR STUDENTS</div>
           <h3 class="text-2xl font-semibold mb-3">Students Survey</h3>
           <p class="text-slate-600 dark:text-slate-400 mb-6">High school & prospective college students planning a Bachelor's degree or higher.</p>
           <span class="inline-flex items-center text-[#1E3A8A] dark:text-emerald-400 group-hover:gap-3 transition-all">Take Survey <span class="text-xl">→</span></span>
         </a>
 
-        <!-- Parent Survey -->
-        <a href="https://forms.gle/BVFZdZbK4r8euQBf8?utm_source=vercel&utm_medium=website&utm_campaign=splash&utm_content=parent" target="_blank" 
-           class="group bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 p-8 rounded-3xl transition-all hover:shadow-xl">
+        <a href="https://forms.gle/BVFZdZbK4r8euQBf8?utm_source=vercel&utm_medium=website&utm_campaign=splash&utm_content=parent" target="_blank" class="group bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 p-8 rounded-3xl transition-all hover:shadow-xl">
           <div class="text-[#10B981] text-sm font-semibold mb-2">FOR PARENTS</div>
           <h3 class="text-2xl font-semibold mb-3">Parent Survey</h3>
           <p class="text-slate-600 dark:text-slate-400 mb-6">Parents supporting college-bound students.</p>
           <span class="inline-flex items-center text-[#1E3A8A] dark:text-emerald-400 group-hover:gap-3 transition-all">Take Survey <span class="text-xl">→</span></span>
         </a>
 
-        <!-- High School Leaders -->
-        <a href="https://forms.gle/tcqwBPhx8356sRaAA?utm_source=vercel&utm_medium=website&utm_campaign=splash&utm_content=leaders" target="_blank" 
-           class="group bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 p-8 rounded-3xl transition-all hover:shadow-xl">
+        <a href="https://forms.gle/tcqwBPhx8356sRaAA?utm_source=vercel&utm_medium=website&utm_campaign=splash&utm_content=leaders" target="_blank" class="group bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 p-8 rounded-3xl transition-all hover:shadow-xl">
           <div class="text-[#10B981] text-sm font-semibold mb-2">FOR SCHOOL LEADERS</div>
           <h3 class="text-2xl font-semibold mb-3">High School Leaders Survey</h3>
           <p class="text-slate-600 dark:text-slate-400 mb-6">Principals and school leaders focused on college readiness.</p>
           <span class="inline-flex items-center text-[#1E3A8A] dark:text-emerald-400 group-hover:gap-3 transition-all">Take Survey <span class="text-xl">→</span></span>
         </a>
 
-        <!-- Counselors -->
-        <a href="https://forms.gle/XJLie4AooU2Fktnk7?utm_source=vercel&utm_medium=website&utm_campaign=splash&utm_content=counselor" target="_blank" 
-           class="group bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 p-8 rounded-3xl transition-all hover:shadow-xl">
+        <a href="https://forms.gle/XJLie4AooU2Fktnk7?utm_source=vercel&utm_medium=website&utm_campaign=splash&utm_content=counselor" target="_blank" class="group bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 p-8 rounded-3xl transition-all hover:shadow-xl">
           <div class="text-[#10B981] text-sm font-semibold mb-2">FOR COUNSELORS</div>
           <h3 class="text-2xl font-semibold mb-3">Counselors Survey</h3>
           <p class="text-slate-600 dark:text-slate-400 mb-6">High school and college counselors.</p>
@@ -108,8 +101,7 @@
       <form action="https://grad-mapper.com/waitlist.php" method="POST" class="flex flex-col sm:flex-row gap-4">
         <input type="email" name="email" placeholder="your@email.com" required
                class="flex-1 px-6 py-4 rounded-2xl text-slate-900 focus:outline-none focus:ring-4 focus:ring-emerald-400">
-        <button type="submit" 
-                class="bg-[#10B981] hover:bg-emerald-600 font-semibold px-10 py-4 rounded-2xl transition">
+        <button type="submit" class="bg-[#10B981] hover:bg-emerald-600 font-semibold px-10 py-4 rounded-2xl transition">
           Join Waitlist
         </button>
       </form>
