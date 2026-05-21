@@ -1,3 +1,18 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+/* GradMapper design system
+ * Primary: navy #1E3A8A
+ * Accent:  green #10B981
+ * Neutrals: #F8FAFC (light) / #0F172A (dark)
+ * Fonts: Montserrat (display), Inter (body)
+ */
+ 
 body {
   font-family: 'Inter', sans-serif;
 }
